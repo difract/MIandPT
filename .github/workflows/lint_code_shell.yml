@@ -2,10 +2,10 @@ name: lint_code_shell
 on:
   push:
     branches:
-      - 'task2'
+      - 'main'
   pull_request:
     branches:
-      - 'task2'
+      - 'main'
   workflow_dispatch:
 jobs:
   linter:
