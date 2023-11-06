@@ -1,9 +1,9 @@
 name: lint_code
 on:
   push:
-    branches-ignore: [master]
+    branches-ignore: [main]
   pull_request:
-    branches-ignore: [master]
+    branches-ignore: [main]
 jobs:
   linter:
     runs-on: ubuntu-latest
