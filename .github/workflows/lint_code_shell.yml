@@ -6,6 +6,7 @@ on:
   pull_request:
     branches:
       - 'task2'
+  workflow_dispatch:
 jobs:
   linter:
     runs-on: ubuntu-latest
