@@ -1,0 +1,14 @@
+name: lint_code_shell
+on:
+  push:
+    branches-ignore:
+      - 'master'
+  pull_request:
+    branches-ignore:
+      - 'master'
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: github/super-linter@v4
