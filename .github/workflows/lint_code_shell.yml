@@ -10,5 +10,10 @@ jobs:
   linter:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: github/super-linter@v4
+      - name: Repository checkout
+        uses: actions/checkout@v2
+      - name: Code check
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_SHELL_SHFMT: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
