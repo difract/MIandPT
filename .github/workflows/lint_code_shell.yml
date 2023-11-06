@@ -1,11 +1,11 @@
 name: lint_code_shell
 on:
   push:
-    branches-ignore:
-      - 'main'
+    branches:
+      - 'task2'
   pull_request:
-    branches-ignore:
-      - 'main'
+    branches:
+      - 'task2'
 jobs:
   linter:
     runs-on: ubuntu-latest
