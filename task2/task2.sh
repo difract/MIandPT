@@ -41,6 +41,19 @@ extract_zips() {
     rm -f "$file_path"
 }
 
+recoll_indexing() {
+    recollindex -r "$destination"
+    local status=$?
+    if [ $status -ne 0 ]; then
+        >&2 echo "Indexing: failure"
+        return $status
+    else
+        echo "Indexing: success"
+    fi
+}
+
+#checking format
+
 if ! OPTIONS=$(getopt -o s:d:p --long source:,destination:,probe -- "$@"); then
     echo "Wrong options format" >&2
     exit 1
@@ -48,6 +61,7 @@ fi
 
 eval set -- "$OPTIONS"
 
+#checking options
 
 while true; do
     case "$1" in
@@ -70,9 +84,19 @@ while true; do
     esac
 done
 
+#downloading and extracting
+
 for u in $(dl_spbu_oop); do
 	file=$(download "${u}")
 	echo "Downloaded ${u}"
 	extract_zips "$file" "$destination"
   echo $?
 done
+
+#indexing
+
+recoll_indexing
+status=$?
+if [ $status -ne 0 ]; then
+    exit $status
+fi
