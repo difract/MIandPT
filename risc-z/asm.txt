@@ -1,0 +1,11 @@
+addi a2, zero, 1
+addi a3, zero, 1
+addi a5, zero, 10
+loop:
+addi a4, a3, 0
+add a3, a2, a3
+addi a2, a4, 0
+bltu a3, a5, loop
+addi a0, zero, 1
+addi a1, a3, 0
+ecall
