@@ -17,7 +17,7 @@ dl_spbu_oop ()
   fi
 }
 
-function download
+download ()
 {
   url="$1"
   filename="${url//[^a-zA-Z0-9]/_}"
